@@ -1,0 +1,144 @@
+Big O Exercise
+
+Step One: Simplifying Expressions»
+Simplify the following big O expressions as much as possible:
+
+O(n)                      O(n + 10)  
+O(n)                      O(100 × n) 
+O(1)                      O(25)
+O(n**3)                   O(n2 + n3) -
+O(n)                      O(n + n + n + n)
+O(n)                      O(1000 × log(n) + n)
+O(n x log(n))             O(1000 × n × log(n) + n)
+O(2**n)                   O(2**n + n2)
+O(1)                      O(5 + 3 + 1)
+O(n**2)                   O(n + n**(1/2) + n**2 + n × log(n)**10)
+
+
+Step Two: Calculating Time Complexity»
+Determine the time complexities for each of the following functions. If you’re not sure what these functions do, copy and paste them into the console and experiment with different inputs!
+
+function logUpTo(n) {
+  for (let i = 1; i <= n; i++) {
+    console.log(i);
+  }
+}
+Time Complexity:  O(n) - linear
+Space Complexity: O(1) - constant
+
+function logAtLeast10(n) {
+  for (let i = 1; i <= Math.max(n, 10); i++) {
+    console.log(i);
+  }
+}
+Time Complexity:  O(n) - linear
+Space Complexity: O(1) - constant
+
+function logAtMost10(n) {
+  for (let i = 1; i <= Math.min(n, 10); i++) {
+    console.log(i);
+  }
+}
+Time Complexity:  O(1) - constant
+Space Complexity: O(1) - constant
+
+function onlyNumsAtEvenIndexes(nums) {
+  let numsAtEvens = [];
+
+  for (let i = 0; i < nums.length; i++) {
+    if (i % 2 === 0) {
+      numsAtEvens.push(nums[i]);
+    }
+  }
+
+  return numsAtEvens;
+}
+Time Complexity:    O(n) - linear
+Space Complexity:   O(n) - linear
+
+function runningSubtotals(nums) {
+  let subtotals = [];
+
+  for (let i = 0; i < nums.length; i++) {
+    let subtotal = 0;
+    for (let j = 0; j <= i; j++) {
+      subtotal += nums[j];
+    }
+    subtotals.push(subtotal);
+  }
+
+  return subtotals;
+}
+Time Complexity:   O(n**2) - quadratic 
+Space Complexity:  O(n) - linear
+
+const VOWELS = "aeiouAEIOU";
+
+function vowelsCounts(word) {
+  let vowelsToCounts = {};
+
+  for (let char of word) {
+    if (VOWELS.includes(char)) {
+      if (char in vowelsToCounts) {
+        vowelsToCounts[char] += 1;
+      } else {
+        vowelsToCounts[char] = 1;
+      }
+    }
+  }
+
+  return vowelsToCounts;
+}
+Time Complexity:   O(n) - linear 
+Space Complexity:  O(n) - linear
+
+Step Three: Short answer»
+Answer the following questions
+
+T             True or false: n**2 + n is O(n**2).
+
+T             True or false: n**2 * n is O(n^3).
+
+F O(n**2)     True or false: n**2 + n is O(n).
+
+linear               What’s the time complexity of the .indexOf array method?
+
+linear               What’s the time complexity of the .includes array method?
+
+linear               What’s the time complexity of the .every array method?
+
+linear logarithmic   What’s the time complexity of the .sort array method?
+
+linear               What’s the time complexity of the .unshift array method? (position needs to change in array)
+
+constant             What’s the time complexity of the .push array method?
+
+constant             What’s the time complexity of the .pop array method?
+
+linear               What’s the time complexity of the Object.keys() function?
+
+Bonus:
+
+linear               What’s the space complexity of the Object.keys() function?
+
+IMPORTANT Stop and get a code review.
+
+Further Study»
+Write a function called pairSum that takes an array of positive numbers and finds the largest sum of two numbers in the array.
+
+Examples:
+
+pairSum([4, 8, 5, 9, 1]); // 17
+pairSum([10, 1, 4, 2, 1]); // 14
+Depending on how you implement this, there are three possibilities for the runtime:
+
+an easy and clear implementation that is O(n2)
+a solution that is easy to write, relies on a JS array methods, and is O(n log n)
+a solution that might be harder to find/understand, but is O(n)
+Solution»
+Big-O Notation Practice
+Step One: Simplifying Expressions
+Step Two: Calculating Time Complexity
+Step Three: short answer
+Further Study
+
